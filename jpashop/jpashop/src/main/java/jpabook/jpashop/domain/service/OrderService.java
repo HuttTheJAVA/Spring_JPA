@@ -36,7 +36,7 @@ public class OrderService {
         //주문 상품 생성
         OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(), count);
 
-        //주문 생성
+        //주문 생성  // 여러 개의 orderItem을 매개변수로 넣을 수 있음.
         Order order = Order.createOrder(member,delivery,orderItem);
 
         //주문 저장
