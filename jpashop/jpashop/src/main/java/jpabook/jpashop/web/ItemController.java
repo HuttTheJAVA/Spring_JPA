@@ -41,7 +41,7 @@ public class ItemController {
         return "redirect:/items";
     }
 
-    @GetMapping("/items/{id}/edit") // 그냥 itemId말고 id로?
+    @GetMapping("/items/{id}/edit")
     public String updateForm(@PathVariable(name = "id" ) Long itemId,Model model){
         Book item = (Book)itemService.findOne(itemId);
 
@@ -56,5 +56,11 @@ public class ItemController {
         model.addAttribute("form",form);
         return "items/updateItemForm";
     }
-    
+
+    @PostMapping("/items/{id}/edit")
+    public String updateItem(@PathVariable Long id, @ModelAttribute("form") BookForm form){
+        itemService.updateItem(id, form.getName(), form.getPrice(), form.getStockQuantity());
+
+        return "redirect:/items";
+    }
 }
