@@ -2,6 +2,8 @@ package hellojpa;
 
 import jakarta.persistence.*;
 
+import static hellojpa.RoleType.*;
+
 public class JpaMain {
 
     public static void main(String[] args) {
@@ -15,8 +17,8 @@ public class JpaMain {
 
         try{
             Member member = new Member();
-            member.setId(1L);
-            member.setName("chy");
+            member.setId(3L);
+            member.setRoleType(USER);
             em.persist(member);
             tx.commit();
 
