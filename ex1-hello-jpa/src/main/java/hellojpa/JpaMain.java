@@ -16,10 +16,16 @@ public class JpaMain {
         tx.begin();
 
         try{
-            Member member = new Member();
-            member.setId(3L);
-            member.setRoleType(USER);
-            em.persist(member);
+            for(int i =0;i<53;i++){
+                Member member = new Member();
+                if(i%2==0) {
+                    member.setRoleType(USER);
+                }else{
+                    member.setRoleType(ADMIN);
+                }
+                em.persist(member);
+            }
+
             tx.commit();
 
         }catch (Exception e){
