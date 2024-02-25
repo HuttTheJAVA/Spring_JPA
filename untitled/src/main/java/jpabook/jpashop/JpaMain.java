@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
+import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.OrderItem;
 
@@ -19,8 +20,9 @@ public class JpaMain {
 
         try{
 
-            Order order = new Order();
-            order.addOrderItem(new OrderItem());
+            Member member = new Member();
+            member.setName("Kanye");
+            em.persist(member);
 
             tx.commit();
 
