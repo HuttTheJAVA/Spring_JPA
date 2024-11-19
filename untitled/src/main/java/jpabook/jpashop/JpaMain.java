@@ -20,22 +20,7 @@ public class JpaMain {
         tx.begin();
 
         try{
-            Member member1 = new Member();
-            member1.setName("member1");
-            em.persist(member1);
-
-            em.flush();
-            em.clear();
-
-            Member refMember = em.getReference(Member.class, member1.getId());
-
-            System.out.println("refMember = "+refMember.getClass());
-
-            System.out.println("isLoaded = "+emf.getPersistenceUnitUtil().isLoaded(refMember));
-
-            refMember.getName();
-
-            System.out.println("isLoaded = "+emf.getPersistenceUnitUtil().isLoaded(refMember));
+            Member member = new Member();
 
             tx.commit();
 
